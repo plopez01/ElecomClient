@@ -15,7 +15,7 @@ function createWindow () {
   })
   win.setMenuBarVisibility(false);
 
-  win.loadFile('app/app-main.html')
+  win.loadFile('login/login.html')
 
   win.webContents.openDevTools()
 

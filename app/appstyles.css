@@ -1,3 +1,7 @@
 body {
+    font-family: Helvetica;
+    color: #fff;
     background-color: #72767d;
 }
+
+h1, h3 { font-weight: 300; }
