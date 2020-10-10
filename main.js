@@ -41,6 +41,6 @@ app.on('activate', () => {
 })
 
 ipc.on('loginUser', function(event, data){
-  console.log(data);
+  authModule.login(data);
 });
 
