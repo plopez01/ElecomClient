@@ -13,8 +13,9 @@ function createWindow () {
       nodeIntegration: true
     }
   })
+  win.setMenuBarVisibility(false);
 
-  win.loadFile('register/register.html')
+  win.loadFile('app/app-main.html')
 
   win.webContents.openDevTools()
 
