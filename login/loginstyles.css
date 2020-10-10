@@ -112,3 +112,13 @@ input[type=password]:focus {
     color: #1F4A8F;
     text-decoration: none;
 }
+
+.login-link:hover {
+    transition: all 0.5s ease-out;
+    text-decoration: underline;
+}
+
+.register-link:hover {
+  transition: all 0.5s ease-out;
+  text-decoration: underline;
+}
