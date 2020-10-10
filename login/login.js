@@ -3,14 +3,13 @@ var ipc = require('electron').ipcRenderer;
 
 var loginButton = document.getElementById('login-button');
 
-var loginName = document.getElementById('login-name');
+var loginEmail = document.getElementById('login-email');
 
 var loginPass = document.getElementById('login-pass');
 
-
 loginButton.addEventListener('click', function(){
     var loginData = {
-        name: loginName.value,
+        email: loginEmail.value,
         pass: loginPass.value,
     }
     ipc.send('loginUser', loginData);

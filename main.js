@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+
 const authModule = require("./modules/auth.js");
 
 //Define ipc
