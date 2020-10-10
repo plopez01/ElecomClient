@@ -14,7 +14,7 @@ function createWindow () {
     }
   })
 
-  win.loadFile('login/login.html')
+  win.loadFile('register/register.html')
 
   win.webContents.openDevTools()
 
@@ -43,5 +43,9 @@ app.on('activate', () => {
 
 ipc.on('loginUser', function(event, data){
   authModule.login(data);
+});
+
+ipc.on('registerUser', function(event, data){
+  authModule.register(data);
 });
 
