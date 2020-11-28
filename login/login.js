@@ -1,6 +1,8 @@
 // Inter Process Communication
 var ipc = require('electron').ipcRenderer;
 
+var inputUtils = require('../util/inputUtils');
+
 var loginButton = document.getElementById('login-button');
 
 var loginEmail = document.getElementById('login-email');
@@ -12,5 +14,10 @@ loginButton.addEventListener('click', function(){
         email: loginEmail.value,
         pass: loginPass.value,
     }
-    ipc.send('loginUser', loginData);
+    if(inputUtils.emailCheck(loginData.email) && inputUtils.passCheck(loginData.pass)){
+        ipc.send('loginUser', loginData);
+    }else{
+        //Handle invalid input
+        console.error("Invalid input!");
+    }
 })
