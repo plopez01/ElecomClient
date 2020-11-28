@@ -7,7 +7,7 @@ module.exports = {
         form: {email:data.email, password:data.pass}}, 
         function(err, httpResponse){ 
             if(err || httpResponse.statusCode != 200){
-                console.error(err);
+                if(err) console.error(err);
                 return false;
             }else{
                 return true;
@@ -19,7 +19,7 @@ module.exports = {
         form: {email:data.email, username:data.username, password:data.pass}}, 
         function(err, httpResponse){ 
             if(err || httpResponse.statusCode != 200){
-                console.error(err);
+                if(err) console.error(err);
                 return false;
             }else{
                 return true;
