@@ -9,6 +9,8 @@ var loginEmail = document.getElementById('login-email');
 
 var loginPass = document.getElementById('login-pass');
 
+var errorGroup = document.getElementById('error-msg');
+
 loginButton.addEventListener('click', function(){
     var loginData = {
         email: loginEmail.value,
@@ -19,5 +21,7 @@ loginButton.addEventListener('click', function(){
     }else{
         //Handle invalid input
         console.error("Invalid input!");
+        errorGroup.innerText = 'Invalid email or password';
+        errorGroup.style.animation = 'showError 1s forwards';
     }
 })

@@ -1,3 +1,5 @@
+@import "../util/colorPalette.css";
+
 * {
     box-sizing: border-box;
 }
@@ -8,7 +10,7 @@
 
 body {
     font-family: Helvetica;
-    background-color: #eee;
+    background-color: var(--background_white);
     padding: 50px;
 }
 
@@ -25,7 +27,7 @@ h1, h3 { font-weight: 300; }
 }
 
 .register-screen {
-	background: #fafafa;
+	background: var(--primary_white);
 	padding: 3em 2em 2em 2em;
     width: 380px;
     margin: 4em auto;
@@ -48,7 +50,7 @@ h1, h3 { font-weight: 300; }
     
 input[type=text] {
     text-align: center;
-    background-color: #ECF0F1;
+    background-color: var(--input_white);
     border: 2px solid transparent;
     margin-top: 10px;
     border-radius: 3px;
@@ -61,7 +63,7 @@ input[type=text] {
 input[type=password] {
     margin-top: 10px;
     text-align: center;
-    background-color: #ECF0F1;
+    background-color: var(--input_white);
     border: 2px solid transparent;
     border-radius: 3px;
     font-size: 16px;
@@ -72,17 +74,18 @@ input[type=password] {
 }
     
 input[type=text]:focus {
-    border: 2px solid #36393f;
+    border: 2px solid var(--primary_gray);
     box-shadow: none;
 }
     
 input[type=password]:focus {
-    border: 2px solid #36393f;
+    border: 2px solid var(--primary_gray);
     box-shadow: none;
 }
+
 .btn {
       border: 2px solid transparent;
-      background: #36393f;
+      background: var(--primary_gray);
       color: #ffffff;
       font-size: 16px;
       line-height: 25px;
@@ -98,5 +101,5 @@ input[type=password]:focus {
 }
     
 .btn:hover {
-      background-color: #202225;
+      background-color: var(--darker_dark);
 }
