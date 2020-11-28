@@ -1,0 +1,13 @@
+:root {
+    --background_white: #eee;
+    --primary_white: #fafafa;
+    --secondary_white: #ebebeb;
+    --input_white: #ECF0F1;
+
+    --primary_gray: #36393f;
+    --dark: #36393f;
+    --darker_dark: #202225;
+
+    --url_blue: #1F4A8F;
+    --error_red: #bd1e24;
+}
