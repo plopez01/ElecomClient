@@ -11,6 +11,7 @@ module.exports = {
                 case 'ECONNREFUSED':
                     //Handle
                     console.error(err);
+                    return "Connection failed. Check your internet connection."
                 break;
     
             }
