@@ -15,5 +15,5 @@ registerButton.addEventListener('click', function(){
         username: registerUsername.value,
         pass: registerPass.value,
     }
-    ipc.send('registerUser', registerData);
+    ipc.send('register-user', registerData);
 })

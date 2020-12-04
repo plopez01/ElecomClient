@@ -41,11 +41,11 @@ app.on('activate', () => {
   }
 })
 
-ipc.on('loginUser', function(event, data){
+ipc.on('login-user', function(event, data){
   authModule.login(data);
 });
 
-ipc.on('registerUser', function(event, data){
+ipc.on('register-user', function(event, data){
   authModule.register(data);
 });
 

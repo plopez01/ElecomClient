@@ -17,7 +17,7 @@ loginButton.addEventListener('click', function(){
         pass: loginPass.value,
     }
     if(inputUtils.emailCheck(loginData.email) && inputUtils.passCheck(loginData.pass)){
-        ipc.send('loginUser', loginData);
+        ipc.send('login-user', loginData);
     }else{
         //Handle invalid input
         console.error("Invalid input!");
