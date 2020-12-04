@@ -43,6 +43,7 @@ app.on('activate', () => {
 
 ipc.on('login-user', function(event, data){
   authModule.login(data);
+  event.reply("login-state", 'ok');
 });
 
 ipc.on('register-user', function(event, data){

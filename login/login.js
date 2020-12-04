@@ -25,3 +25,7 @@ loginButton.addEventListener('click', function(){
         errorGroup.style.animation = 'showError 1s forwards';
     }
 })
+
+ipc.on('login-state', (event, state) => {
+    console.log(state);
+})
