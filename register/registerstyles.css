@@ -10,7 +10,7 @@
 
 body {
     font-family: Helvetica;
-    background-color: var(--background_white);
+    background-color: var(--background);
     padding: 50px;
 }
 
@@ -27,7 +27,7 @@ h1, h3 { font-weight: 300; }
 }
 
 .register-screen {
-	background: var(--primary_white);
+	background: var(--primary_one);
 	padding: 3em 2em 2em 2em;
     width: 380px;
     margin: 4em auto;
@@ -50,7 +50,7 @@ h1, h3 { font-weight: 300; }
     
 input[type=text] {
     text-align: center;
-    background-color: var(--input_white);
+    background-color: var(--input);
     border: 2px solid transparent;
     margin-top: 10px;
     border-radius: 3px;
@@ -63,7 +63,7 @@ input[type=text] {
 input[type=password] {
     margin-top: 10px;
     text-align: center;
-    background-color: var(--input_white);
+    background-color: var(--input);
     border: 2px solid transparent;
     border-radius: 3px;
     font-size: 16px;
@@ -74,18 +74,18 @@ input[type=password] {
 }
     
 input[type=text]:focus {
-    border: 2px solid var(--primary_gray);
+    border: 2px solid var(--secondary_one);
     box-shadow: none;
 }
     
 input[type=password]:focus {
-    border: 2px solid var(--primary_gray);
+    border: 2px solid var(--secondary_one);
     box-shadow: none;
 }
 
 .btn {
       border: 2px solid transparent;
-      background: var(--primary_gray);
+      background: var(--secondary_one);
       color: #ffffff;
       font-size: 16px;
       line-height: 25px;
@@ -101,5 +101,5 @@ input[type=password]:focus {
 }
     
 .btn:hover {
-      background-color: var(--darker_dark);
+      background-color: var(--secondary_two);
 }

@@ -1,4 +1,4 @@
-@import "../util/whiteColorPalette.css";
+@import "../util/blackColorPalette.css";
 
 @keyframes showError {
     0% {height: 0%; padding: 0px; visibility: visible;}
@@ -15,7 +15,7 @@
 
 body {
     font-family: Helvetica;
-    background-color: var(--background_white);
+    background-color: var(--background);
     padding: 50px;
 }
 
@@ -32,11 +32,11 @@ h1, h3 { font-weight: 300; }
 }
 
 .login-screen {
-	background: var(--primary_white);
+	background: var(--primary_one);
 	padding: 3em 2em 2em 2em;
     width: 380px;
     margin: 4em auto;
-    border: 1px solid var(--secondary_white);;
+    border: 1px solid var(primary_two);
 	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
 }
 
@@ -54,8 +54,8 @@ h1, h3 { font-weight: 300; }
 }
 
 .error-group {
-    background-color: var(--error_red);
-    color: var(--primary_white);
+    background-color: var(--error);
+    color: var(--primary_one);
     margin-bottom: -33px;
     margin-left: -33px;
     margin-right: -33px;
@@ -66,7 +66,7 @@ h1, h3 { font-weight: 300; }
     
 input[type=text] {
     text-align: center;
-    background-color: var(--input_white);
+    background-color: var(--input);
     border: 2px solid transparent;
     border-radius: 3px;
     font-size: 16px;
@@ -77,7 +77,7 @@ input[type=text] {
 }
 input[type=password] {
     text-align: center;
-    background-color: var(--input_white);
+    background-color: var(--input);
     border: 2px solid transparent;
     border-radius: 3px;
     font-size: 16px;
@@ -88,17 +88,17 @@ input[type=password] {
 }
     
 input[type=text]:focus {
-    border: 2px solid var(--primary_gray);
+    border: 2px solid var(--secondary_one);
     box-shadow: none;
 }
     
 input[type=password]:focus {
-    border: 2px solid var(--primary_gray);
+    border: 2px solid var(--secondary_one);
     box-shadow: none;
 }
 .btn {
       border: 2px solid transparent;
-      background: var(--primary_gray);
+      background: var(--secondary_one);
       color: #ffffff;
       font-size: 16px;
       line-height: 25px;
@@ -114,12 +114,12 @@ input[type=password]:focus {
 }
     
 .btn:hover {
-      background-color: var(--darker_dark);
+      background-color: var(--secondary_two);
 }
 
 .login-link {
       font-size: 17px;
-      color: var(--url_blue);
+      color: var(--url);
       display: block;
       margin-top: 10px;
       text-decoration: none;
@@ -127,7 +127,7 @@ input[type=password]:focus {
 
  .register-link {
     font-size: 17px;
-    color: var(--url_blue);
+    color: var(--url);
     text-decoration: none;
 }
 
