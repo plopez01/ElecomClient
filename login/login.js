@@ -20,12 +20,19 @@ loginButton.addEventListener('click', function(){
         ipc.send('login-user', loginData);
     }else{
         //Handle invalid input
-        console.error("Invalid input!");
+        console.warn("Invalid input!");
         errorGroup.innerText = 'Invalid email or password';
         errorGroup.style.animation = 'showError 1s forwards';
     }
 })
 
 ipc.on('login-state', (event, state) => {
-    console.log(state);
+    if(state == true){
+        //Login
+    }else{
+        //Error client handling
+        console.error(state);
+        errorGroup.innerHTML = `<b>${state}</b>`;
+        errorGroup.style.animation = 'showError 1s forwards';
+    }
 })

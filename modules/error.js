@@ -11,11 +11,13 @@ module.exports = {
                 case 'ECONNREFUSED':
                     //Handle
                     console.error(err);
-                    return "Connection failed. Check your internet connection."
-                break;
-    
+                    return "Connection failed. Check your internet."
+                    
+                default:
+                    console.error(err);
+                    return err;
             }
-        }else{ //Did get respose, but unexpected one.
+        }else{ //Did get response, but unexpected one.
             switch(httpResponse.statusCode){
 
                 //Wrong user or password
