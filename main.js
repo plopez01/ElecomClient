@@ -15,7 +15,7 @@ function createWindow () {
   })
   win.setMenuBarVisibility(false);
 
-  win.loadFile('app/app-main.html')
+  win.loadFile('login/login.html')
 
   win.webContents.openDevTools()
 
@@ -23,8 +23,7 @@ function createWindow () {
 }
 
 function main(){
-  console.log("App Loaded");
-  //authModule.login();
+  console.log("Elecom Loaded");
 }
 
 app.whenReady().then(createWindow)
@@ -43,7 +42,11 @@ app.on('activate', () => {
 
 ipc.on('login-user', function(event, data){
   authModule.login(data).then(function(loginState){
-    event.reply("login-state", loginState);
+    if(loginState == true){
+      win.loadFile('app/app-main.html');
+    }else{
+      event.reply("login-state", loginState);
+    }
   });
 });
 

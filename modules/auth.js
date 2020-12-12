@@ -8,7 +8,7 @@ module.exports = {
         return new Promise(function(resolve) {
             request.post({url:`http://${config.network.webip}:${config.network.webport}/login`, 
             form: {email:data.email, password:data.pass}}, 
-            function(err, httpResponse){ 
+            function(err, httpResponse){
                 if(err || httpResponse.statusCode != httpCodes.OK){
                     resolve(errorModule.httpError(err, httpResponse));
                 }else{

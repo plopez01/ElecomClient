@@ -18,43 +18,39 @@ module.exports = {
                     return err;
             }
         }else{ //Did get response, but unexpected one.
+            console.error("Server answered with: "+ httpResponse.statusCode);
             switch(httpResponse.statusCode){
 
                 //Wrong user or password
                 case httpCodes.UNAUTHORIZED:
-                    //Handle
-                break;
+                    return "Unauthorized";
 
                 //User is not registered
                 case httpCodes.NOT_FOUND:
-                    //Handle
-                break;
+                    return "Not found";
 
                 //Api is not implemented yet
                 case httpCodes.NOT_IMPLEMENTED:
-                    //Handle
-                break;
+                    return "Not Implemented";
 
                 //Malformed request
                 case httpCodes.BAD_REQUEST:
-                    //Handle
-                break;
+                    return "Bad request";
 
                 //Access is forbidden to this Api
                 case httpCodes.FORBIDDEN:
-                    //Handle
-                break;
+                    return "Forbidden";
 
                 //The server is not available
                 case httpCodes.SERVICE_UNAVAILABLE:
-                    //Handle
-                break;
+                    return "Service Unavailabe";
 
                 //An internal server error has ocurred
                 case httpCodes.INTERNAL_SERVER_ERROR:
-                    //Handle
-                break;
+                    return "Internal Server Error";
 
+                default:
+                    return "Error - "+httpResponse.statusCode;
             }
         }
         

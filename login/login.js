@@ -47,13 +47,8 @@ function login(){
 
 //IPC login-state async event
 ipc.on('login-state', (event, state) => {
-    if(state == true){
-        //Login
-        console.log('Logging in!');
-    }else{
-        //Error client handling
-        console.error(state);
-        errorGroup.innerHTML = `<b>${state}</b>`;
-        errorGroup.style.animation = 'showError 1s forwards';
-    }
+    //Error client handling
+    console.error(state);
+    errorGroup.innerHTML = `<b>${state}</b>`;
+    errorGroup.style.animation = 'showError 1s forwards';
 })
