@@ -11,7 +11,26 @@ var loginPass = document.getElementById('login-pass');
 
 var errorGroup = document.getElementById('error-msg');
 
-loginButton.addEventListener('click', function(){
+loginButton.addEventListener('click', login)
+
+//Enter press email move to password input
+loginEmail.addEventListener("keyup", function(event) {
+    if (event.key == 'Enter') {
+      event.preventDefault();
+      loginPass.focus();
+    }
+});
+
+//Enter press login support
+loginPass.addEventListener("keyup", function(event) {
+    if (event.key == 'Enter') {
+      event.preventDefault();
+      login();
+    }
+});
+
+//Tries to login with data verification
+function login(){
     var loginData = {
         email: loginEmail.value,
         pass: loginPass.value,
@@ -24,8 +43,9 @@ loginButton.addEventListener('click', function(){
         errorGroup.innerText = 'Invalid email or password';
         errorGroup.style.animation = 'showError 1s forwards';
     }
-})
+}
 
+//IPC login-state async event
 ipc.on('login-state', (event, state) => {
     if(state == true){
         //Login
