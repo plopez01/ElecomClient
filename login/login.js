@@ -1,5 +1,5 @@
 // Inter Process Communication
-var ipc = require('electron').ipcRenderer;
+const { remote, ipcRenderer } = require('electron');
 
 var inputUtils = require('../util/inputUtils');
 
@@ -10,6 +10,7 @@ var loginEmail = document.getElementById('login-email');
 var loginPass = document.getElementById('login-pass');
 
 var errorGroup = document.getElementById('error-msg');
+
 
 loginButton.addEventListener('click', login)
 
@@ -36,7 +37,7 @@ function login(){
         pass: loginPass.value,
     }
     if(inputUtils.emailCheck(loginData.email) && inputUtils.passCheck(loginData.pass)){
-        ipc.send('login-user', loginData);
+        ipcRenderer.send('login-user', loginData);
     }else{
         //Handle invalid input
         console.warn("Invalid input!");
@@ -46,9 +47,13 @@ function login(){
 }
 
 //IPC login-state async event
-ipc.on('login-state', (event, state) => {
-    //Error client handling
-    console.error(state);
-    errorGroup.innerHTML = `<b>${state}</b>`;
-    errorGroup.style.animation = 'showError 1s forwards';
+ipcRenderer.on('login-state', (event, state) => {
+    if(state == true){
+        remote.getCurrentWindow().loadFile('./app/app-main.html');
+    }else{
+        //Error client handling
+        console.error(state);
+        errorGroup.innerHTML = `<b>${state}</b>`;
+        errorGroup.style.animation = 'showError 1s forwards';
+    }
 })

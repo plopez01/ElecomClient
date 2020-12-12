@@ -18,7 +18,7 @@ module.exports = {
                     return err;
             }
         }else{ //Did get response, but unexpected one.
-            console.error("Server answered with: "+ httpResponse.statusCode);
+            console.error("[ErrorModule/ERROR] Server answered with: "+ httpResponse.statusCode);
             switch(httpResponse.statusCode){
 
                 //Wrong user or password
