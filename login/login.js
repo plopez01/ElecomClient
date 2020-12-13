@@ -41,7 +41,7 @@ function login(){
     }else{
         //Handle invalid input
         console.warn("Invalid input!");
-        errorGroup.innerText = 'Invalid email or password';
+        errorGroup.innerHTML = '<b>Invalid email or password</b>';
         errorGroup.style.animation = 'showError 1s forwards';
     }
 }

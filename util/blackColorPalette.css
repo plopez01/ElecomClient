@@ -1,12 +1,14 @@
 :root {
-    --background: #eee;
-    --primary_one: #fafafa;
-    --primary_two: #ebebeb;
-    --input: #ECF0F1;
+    --background: rgb(41, 41, 41);
+    --primary_one: #3d3d3d;
+    --primary_two: #202020;
+    --input: #525252;
 
-    --secondary_one: #36393f;
-    --secondary_two: #202225;
+    --secondary_one: #4856d3;
+    --secondary_two: #3c49b6;
 
-    --url: #1F4A8F;
+    --url: #367cbd;
     --error: #bd1e24;
+
+    --text: #ececec;
 }
