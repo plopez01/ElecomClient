@@ -1,4 +1,4 @@
-@import "../util/blackColorPalette.css";
+@import "../themes/blackColorPalette.css";
 
 @keyframes showError {
     0% {height: 0%; padding: 0px; visibility: visible;}
