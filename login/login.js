@@ -30,6 +30,16 @@ loginPass.addEventListener("keyup", function(event) {
     }
 });
 
+
+//IPC login-state async event
+ipcRenderer.on('login-state', (event, state) => {
+    if(state == true){
+        remote.getCurrentWindow().loadFile('./app/app-main.html');
+    }else{
+        invalidInput(state);
+    }
+})
+
 //Tries to login with data verification
 function login(){
     var loginData = {
@@ -39,21 +49,14 @@ function login(){
     if(inputUtils.emailCheck(loginData.email) && inputUtils.passCheck(loginData.pass)){
         ipcRenderer.send('login-user', loginData);
     }else{
-        //Handle invalid input
-        console.warn("Invalid input!");
-        errorGroup.innerHTML = '<b>Invalid email or password</b>';
-        errorGroup.style.animation = 'showError 1s forwards';
+        invalidInput('Invalid email or password!');
     }
 }
 
-//IPC login-state async event
-ipcRenderer.on('login-state', (event, state) => {
-    if(state == true){
-        remote.getCurrentWindow().loadFile('./app/app-main.html');
-    }else{
-        //Error client handling
-        console.error(state);
-        errorGroup.innerHTML = `<b>${state}</b>`;
-        errorGroup.style.animation = 'showError 1s forwards';
-    }
-})
+//Invalid input message handler
+function invalidInput(msg){
+    //Handle invalid input
+    console.warn(msg);
+    errorGroup.innerHTML = `<b>${msg}</b>`;
+    errorGroup.style.animation = 'showError 1s forwards';
+}

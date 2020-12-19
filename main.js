@@ -1,4 +1,4 @@
-const { app, ipcMain, BrowserWindow } = require('electron')
+const { app, ipcMain, BrowserWindow } = require('electron');
 
 const authModule = require("./modules/auth.js");
 
@@ -41,11 +41,13 @@ app.on('activate', () => {
 
 ipcMain.on('login-user', function(event, data){
   authModule.login(data).then(function(loginState){
-    event.reply("login-state", loginState);
+    event.reply('login-state', loginState);
   });
 });
 
 ipcMain.on('register-user', function(event, data){
-  authModule.register(data);
+  authModule.register(data).then(function(registerState){
+    event.reply('register-state', registerState)
+  });
 });
 
