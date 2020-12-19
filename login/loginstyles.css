@@ -120,21 +120,21 @@ input[type=password]:focus {
       background-color: var(--secondary_two);
 }
 
-.login-link {
-      font-size: 17px;
-      color: var(--url);
-      display: block;
-      margin-top: 10px;
-      text-decoration: none;
+.restorepass-link {
+    font-size: 17px;
+    color: var(--url);
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
  }
 
- .register-link {
+.register-link {
     font-size: 17px;
     color: var(--url);
     text-decoration: none;
 }
 
-.login-link:hover {
+.restorepass-link:hover {
     transition: all 0.5s ease-out;
     text-decoration: underline;
 }

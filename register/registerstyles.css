@@ -1,4 +1,4 @@
-@import "../themes/whiteColorPalette.css";
+@import "../themes/blackColorPalette.css";
 
 * {
     box-sizing: border-box;
@@ -12,6 +12,7 @@ body {
     font-family: Helvetica;
     background-color: var(--background);
     padding: 50px;
+    color: var(--text);
 }
 
 hgroup { 
@@ -31,7 +32,7 @@ h1, h3 { font-weight: 300; }
 	padding: 3em 2em 2em 2em;
     width: 380px;
     margin: 4em auto;
-    border: 1px solid #ebebeb;
+    border: 1px solid var(--primary_two);
 	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
 }
 
@@ -47,10 +48,22 @@ h1, h3 { font-weight: 300; }
 .control-group {
     margin-bottom: 10px;
 }
+
+.error-group {
+    background-color: var(--error);
+    color: var(--text);
+    margin-bottom: -33px;
+    margin-left: -33px;
+    margin-right: -33px;
+    padding: 8px;
+    height: 100%;
+    visibility: hidden;
+}
     
 input[type=text] {
     text-align: center;
     background-color: var(--input);
+    color: var(--text);
     border: 2px solid transparent;
     margin-top: 10px;
     border-radius: 3px;
@@ -64,6 +77,7 @@ input[type=password] {
     margin-top: 10px;
     text-align: center;
     background-color: var(--input);
+    color: var(--text);
     border: 2px solid transparent;
     border-radius: 3px;
     font-size: 16px;
@@ -103,3 +117,14 @@ input[type=password]:focus {
 .btn:hover {
       background-color: var(--secondary_two);
 }
+
+.login-link {
+    font-size: 17px;
+    color: var(--url);
+    text-decoration: none;
+}
+
+.login-link:hover {
+    transition: all 0.5s ease-out;
+    text-decoration: underline;
+  }

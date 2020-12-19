@@ -1,7 +1,9 @@
+@import "../themes/blackColorPalette.css";
+
 body {
     font-family: Helvetica;
-    color: #fff;
-    background-color: #000000;
+    color: var(--text);
+    background-color: var(--background);
 }
 
 h1, h3 { font-weight: 300; }
