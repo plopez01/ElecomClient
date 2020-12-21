@@ -32,11 +32,12 @@ loginPass.addEventListener("keyup", function(event) {
 
 
 //IPC login-state async event
-ipcRenderer.on('login-state', (event, state) => {
-    if(state == true){
+ipcRenderer.on('login-state', (event, status) => {
+    if(status == true){
+        //Handle correct login
         remote.getCurrentWindow().loadFile('./app/app-main.html');
     }else{
-        invalidInput(state);
+        showError(status);
     }
 })
 
@@ -49,12 +50,12 @@ function login(){
     if(inputUtils.emailCheck(loginData.email) && inputUtils.passCheck(loginData.pass)){
         ipcRenderer.send('login-user', loginData);
     }else{
-        invalidInput('Invalid email or password!');
+        showError('Invalid email or password!');
     }
 }
 
 //Invalid input message handler
-function invalidInput(msg){
+function showError(msg){
     //Handle invalid input
     console.warn(msg);
     errorGroup.innerHTML = `<b>${msg}</b>`;

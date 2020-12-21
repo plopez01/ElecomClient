@@ -1,6 +1,5 @@
 // Inter Process Communication
 const { remote, ipcRenderer } = require('electron');
-const { registerUser } = require('../../ElecomWebServer/controllers/auth');
 
 var inputUtils = require('../util/inputUtils');
 
@@ -42,11 +41,12 @@ registerPass.addEventListener("keyup", function(event) {
 
 
 //IPC register-state async event
-ipcRenderer.on('register-state', (event, state) => {
-    if(state == true){
-        //Handle registration
+ipcRenderer.on('register-state', (event, status) => {
+    if(status == true){
+        //Handle correct registration
+        remote.getCurrentWindow().loadFile('./app/app-main.html');
     }else{
-        invalidInput(state);
+        showError(status);
     }
 })
 
@@ -61,18 +61,18 @@ function register(){
             if(inputUtils.userCheck(registerData.username)){
                 ipcRenderer.send('register-user', registerData);
             }else{
-                invalidInput('Invalid username!');
+                showError('Invalid username!');
             }
         }else{
-            invalidInput('Invalid password!');
+            showError('Invalid password!');
         }
     }else{
-        invalidInput('Invalid email!');
+        showError('Invalid email!');
     }
 }
 
 //Invalid input message handler
-function invalidInput(msg){
+function showError(msg){
     //Handle invalid input
     console.warn(msg);
     errorGroup.innerHTML = `<b>${msg}</b>`;
