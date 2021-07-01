@@ -10,24 +10,26 @@ module.exports = {
         }
     },
     storeUserData(userData, fileName){
-        fs.writeFile(`${path}/${fileName}.json`, JSON.stringify(userData), function(err){
+        fs.writeFile(`${path}/${fileName}.json`, userData, function(err){
             if(err){
               console.error(err);
             }
         });
     },
     getUserData(fileName){
-        if (fs.existsSync(`${path}/${fileName}.json`)) {
-            fs.readFile(`${path}/${fileName}.json`, function(err, data){
-                if(!err){
-                    return JSON.parse(data);
-                }else{
-                    console.error(err);
-                    return null;
-                }
-            });
-        }else{
-            return null;
-        }
+        return new Promise(function(resolve) {
+            if (fs.existsSync(`${path}/${fileName}.json`)) {
+                fs.readFile(`${path}/${fileName}.json`, function(err, data){
+                    if(!err){
+                        resolve(JSON.parse(data)); // Run parse twice 'cause frist parse only gets rid of escaped string
+                    }else{
+                        console.error(err);
+                        resolve(false);
+                    }
+                });
+            }else{
+                resolve(false);
+            }
+        });
     }
 }

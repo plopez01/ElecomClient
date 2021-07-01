@@ -1,10 +1,10 @@
 const { app, ipcMain, BrowserWindow } = require('electron');
 
+let sessionData;
+
 const authModule = require('./modules/auth.js');
 const storageModule = require('./modules/storage');
 const userModule = require('./modules/user');
-
-var sessionData;
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -20,17 +20,20 @@ function createWindow () {
 
   storageModule.setupStorage('Elecom');
 
-  sessionData = storageModule.getUserData('userData');
-
-  if(sessionData != null){
-    if(authModule.session(sessionData)){
-      win.loadFile('app/app-main.html')
+  storageModule.getUserData('userData').then(function(data){
+    sessionData = data;
+    if(sessionData){
+      authModule.session(sessionData).then(function(status){
+        if(status == true){
+          win.loadFile('app/app-main.html')
+        }else{
+          win.loadFile('login/login.html')
+        }
+      })
     }else{
       win.loadFile('login/login.html')
     }
-  }else{
-    win.loadFile('login/login.html')
-  }
+  });
 
   win.webContents.openDevTools()
 
