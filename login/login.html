@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
     <link rel="stylesheet" href="loginstyles.css">
     <title>Login</title>
 </head>
 <body>
 
-    <hgroup>
-        <h1>Login</h1>
-      </hgroup>
+   <div class="title text-center mt-5">
+       <h1>Login</h1>
+   </div>
 
 	<div class="login">
 		<div class="login-screen">
@@ -26,9 +32,9 @@
                 </div>
 
                 <a id="login-button" class="btn" href="#">Login</a>
-                <p>Don't have account? <a class="register-link" href="../register/register.html">Register</a></p>
+                <p class="dont-have-text mr-3 mt-3">Don't have account? <a class="register-link mt-3" href="../register/register.html">Register</a></p>
  
-                <div id="error-msg" class="error-group">{ Error Message }</div>
+                <div id="error-msg" class="error-group"><p>{ Error Message }</p></div>
 			</div>
 		</div>
     </div>
