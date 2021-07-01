@@ -15,5 +15,14 @@ module.exports = {
               console.error(err);
             }
         });
+    },
+    getUserData(fileName){
+        fs.readFile(`${path}/${fileName}.json`, function(err, data){
+            if(!err){
+                return JSON.parse(data);
+            }else{
+                console.error(err);
+            }
+        });
     }
 }

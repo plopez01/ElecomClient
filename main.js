@@ -2,6 +2,9 @@ const { app, ipcMain, BrowserWindow } = require('electron');
 
 const authModule = require('./modules/auth.js');
 const storageModule = require('./modules/storage');
+const userModule = require('./modules/user');
+
+var sessionData;
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -15,7 +18,15 @@ function createWindow () {
   })
   win.setMenuBarVisibility(false);
 
-  win.loadFile('login/login.html')
+  storageModule.setupStorage('Elecom');
+
+  sessionData = storageModule.getUserData('userData');
+
+  if(authModule.session(sessionData)){
+    win.loadFile('app/app-main.html')
+  }else{
+    win.loadFile('login/login.html')
+  }
 
   win.webContents.openDevTools()
 
@@ -23,7 +34,6 @@ function createWindow () {
 }
 
 function main(){
-  storageModule.setupStorage('Elecom');
   console.log('[Main/INFO] Elecom loaded');
 }
 
@@ -52,4 +62,11 @@ ipcMain.on('register-user', function(event, data){
     event.reply('register-state', registerState);
   });
 });
+
+ipcMain.on('friend-request', function(event, data){
+  userModule.sendFriendRequest(data).then(function(requestState){
+    event.reply('request-state', requestState);
+  });
+});
+
 
