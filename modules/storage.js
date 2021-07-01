@@ -17,12 +17,16 @@ module.exports = {
         });
     },
     getUserData(fileName){
-        fs.readFile(`${path}/${fileName}.json`, function(err, data){
-            if(!err){
-                return JSON.parse(data);
-            }else{
-                console.error(err);
-            }
-        });
+        if (fs.existsSync(`${path}/${fileName}.json`)) {
+            fs.readFile(`${path}/${fileName}.json`, function(err, data){
+                if(!err){
+                    return JSON.parse(data);
+                }else{
+                    console.error(err);
+                }
+            });
+        }else{
+            return null;
+        }
     }
 }

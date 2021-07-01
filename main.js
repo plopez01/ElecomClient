@@ -22,8 +22,12 @@ function createWindow () {
 
   sessionData = storageModule.getUserData('userData');
 
-  if(authModule.session(sessionData)){
-    win.loadFile('app/app-main.html')
+  if(sessionData != null){
+    if(authModule.session(sessionData)){
+      win.loadFile('app/app-main.html')
+    }else{
+      win.loadFile('login/login.html')
+    }
   }else{
     win.loadFile('login/login.html')
   }
