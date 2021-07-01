@@ -5,6 +5,16 @@
     100% {height: 100%; padding: 8px; visibility: visible;}
 }
 
+@font-face {
+    font-family: bold;
+    src: url(../fonts/GraphikBold.otf);
+}
+
+@font-face {
+    font-family: main;
+    src: url(../fonts/SFPro.ttf);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -13,37 +23,29 @@
     outline: none;
 }
 
+html {
+    font-size: 62.5%; /* 10px --> 1rem */
+}
+
 body {
-    font-family: Helvetica;
     background-color: var(--background);
-    padding: 50px;
+    padding: 5rem;
     color: var(--text);
 }
 
-hgroup { 
-	text-align:center;
-	margin-top: 4em;
-}
-
-h1, h3 { font-weight: 300; }
+h1, h3 { font-family: bold;}
 
 .login {
     position: relative; 
-    margin-bottom: 45px; 
+    margin-bottom: 4.5rem; 
 }
 
 .login-screen {
-	background: var(--primary_one);
-	padding: 3em 2em 2em 2em;
-    width: 380px;
-    margin: 4em auto;
-    border: 1px solid var(--primary_two);
+	background: var(--primary_one); /* 1 em = 16px */
+	padding: 1.875rem 1.25rem 1.25rem 1.25rem;
+    width: 38rem;
+    margin: 7.5rem auto;
 	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
-}
-
-.app-title {
-    text-align: center;
-    color: #fff;
 }
 
 .login-form {
@@ -51,68 +53,68 @@ h1, h3 { font-weight: 300; }
 }
 
 .control-group {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .error-group {
     background-color: var(--error);
     color: var(--text);
-    margin-bottom: -33px;
-    margin-left: -33px;
-    margin-right: -33px;
-    padding: 8px;
-    height: 100%;
+    padding: 0.1rem;
     visibility: hidden;
 }
-    
+
+.error-group b {
+    font-size: 2rem;
+}
+
 input[type=text] {
     text-align: center;
     background-color: var(--input);
     color: var(--text);
-    border: 2px solid transparent;
-    border-radius: 3px;
-    font-size: 16px;
-    font-weight: 200;
-    padding: 10px 0;
-    width: 250px;
+    border: 0.2rem solid transparent;
+    border-radius: 0.3rem;
+    font-size: 1.6rem;
+    font-family: main;
+    padding: 1rem 0;
+    width: 25rem;
     transition: border .5s;
 }
 input[type=password] {
     text-align: center;
     background-color: var(--input);
     color: var(--text);
-    border: 2px solid transparent;
-    border-radius: 3px;
-    font-size: 16px;
+    border: 0.2rem solid transparent;
+    border-radius: 0.3rem;
+    font-size: 1.6rem;
     font-weight: 200;
-    padding: 10px 0;
-    width: 250px;
+    padding: 1rem 0;
+    width: 25rem;
     transition: border .5s;
 }
     
 input[type=text]:focus {
-    border: 2px solid var(--secondary_one);
+    border: 0.2rem solid var(--secondary_one);
     box-shadow: none;
 }
     
 input[type=password]:focus {
-    border: 2px solid var(--secondary_one);
+    border: 0.2rem solid var(--secondary_one);
     box-shadow: none;
 }
 .btn {
-      border: 2px solid transparent;
+      border: 0.2rem solid transparent;
       background: var(--secondary_one);
       color: #ffffff;
-      font-size: 16px;
-      line-height: 25px;
-      padding: 10px 0;
+      font-size: 1.6rem;
+      line-height: 2.5rem;
+      padding: 1rem 0;
       text-decoration: none;
       text-shadow: none;
       border-radius: 3px;
       box-shadow: none;
       transition: 0.25s;
       display: block;
-      width: 250px;
+      width: 25rem;
       margin: 0 auto;
 }
     
@@ -121,15 +123,15 @@ input[type=password]:focus {
 }
 
 .restorepass-link {
-    font-size: 17px;
+    font-size: 1.7rem;
     color: var(--url);
     display: block;
-    margin-top: 10px;
+    margin-top: 1rem;
     text-decoration: none;
  }
 
 .register-link {
-    font-size: 17px;
+    font-size: 1.7rem;
     color: var(--url);
     text-decoration: none;
 }
@@ -140,6 +142,12 @@ input[type=password]:focus {
 }
 
 .register-link:hover {
-  transition: all 0.5s ease-out;
-  text-decoration: underline;
+    transition: .5s ease;
+    text-decoration: none;
+}
+
+.dont-have-text {
+    font-size: 1.7rem;
+    font-family: main;
+    color: var(--text);
 }
