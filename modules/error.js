@@ -50,7 +50,7 @@ module.exports = {
                     return "Internal Server Error";
 
                 default:
-                    return "Error - "+httpResponse.statusCode;
+                    return "Error - " + httpResponse.statusCode;
             }
         }
         
