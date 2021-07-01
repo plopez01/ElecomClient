@@ -10,5 +10,8 @@ module.exports = {
     userCheck(username){
         //Username lenght check
         return username.search(/^.{3,16}$/)+1;
+    },
+    userTagCheck(tag){
+        return tag.search(/^.{3,32}#[0-9]{4}$/)+1;
     }
 }
