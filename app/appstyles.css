@@ -1,9 +1,20 @@
-@import "../themes/blackColorPalette.css";
-
-body {
-    font-family: Helvetica;
-    color: var(--text);
-    background-color: var(--background);
+@font-face {
+  font-family: main;
+  src: url(../fonts/SFPro.ttf);
 }
 
-h1, h3 { font-weight: 300; }
+@font-face {
+  font-family: bold;
+  src: url(../fonts/GraphikBold.otf);
+}
+
+html {
+  font-size: 62.5%;
+  /* 10px -> 1rem */
+}
+
+body {
+  background-color: #525252;
+  overflow: hidden;
+}
+/*# sourceMappingURL=appstyles.css.map */
