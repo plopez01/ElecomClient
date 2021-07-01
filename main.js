@@ -18,9 +18,8 @@ function createWindow () {
   })
   win.setMenuBarVisibility(false);
 
-<<<<<<< HEAD
   win.loadFile('app/app-main.html')
-=======
+
   storageModule.setupStorage('Elecom');
 
   storageModule.getUserData('userData').then(function(data){
@@ -37,8 +36,7 @@ function createWindow () {
       win.loadFile('login/login.html')
     }
   });
->>>>>>> 7b753959840996eb97d25fde2d512c543588c647
-
+  
   win.webContents.openDevTools()
 
   main();
