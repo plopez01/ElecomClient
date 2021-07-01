@@ -23,6 +23,7 @@ module.exports = {
                     return JSON.parse(data);
                 }else{
                     console.error(err);
+                    return null;
                 }
             });
         }else{
