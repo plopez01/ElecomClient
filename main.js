@@ -22,11 +22,13 @@ function createWindow () {
 
   storageModule.setupStorage('Elecom');
 
+  console.log('[Main/INFO] Loading userData...');
   storageModule.getUserData('userData').then(function(data){
     sessionData = data;
     if(sessionData){
       authModule.session(sessionData).then(function(status){
         if(status == true){
+          console.log('[Main/INFO] Logged in with session!');
           win.loadFile('app/app-main.html')
         }else{
           win.loadFile('login/login.html')
