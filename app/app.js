@@ -28,8 +28,11 @@ ipcRenderer.on('request-state', (event, status) => {
 })
 
 function friendRequest(){
-    if(inputUtils.userTagCheck(addFriendTag.value)){
-        ipcRenderer.send('friend-request', addFriendTag.value);
+    var requestData = {
+        tag: addFriendTag.value,
+    }
+    if(inputUtils.userTagCheck(requestData.tag)){
+        ipcRenderer.send('friend-request', requestData);
     }else{
         showError('Invalid user tag!');
     }

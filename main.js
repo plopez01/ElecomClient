@@ -75,6 +75,7 @@ ipcMain.on('register-user', function(event, data){
 });
 
 ipcMain.on('friend-request', function(event, data){
+  data.sessionToken = sessionData.sessionToken; // Add session auth token to data object before forwarding
   userModule.sendFriendRequest(data).then(function(requestState){
     event.reply('request-state', requestState);
   });
